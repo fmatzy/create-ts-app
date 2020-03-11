@@ -6,10 +6,6 @@
   "repository": "github:fmatzy/create-ts-app",
   "author": "fmatzy",
   "license": "MIT",
-  "files": [
-    "saofile.js",
-    "template"
-  ],
   "scripts": {
     "test": "jest"
   },
