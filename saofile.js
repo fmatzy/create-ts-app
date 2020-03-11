@@ -8,31 +8,39 @@ module.exports = {
         name: 'name',
         message: 'What is the name of the new project',
         default: this.outFolder,
-        filter: val => val.toLowerCase()
+        filter: val => val.toLowerCase(),
       },
       {
         name: 'description',
         message: 'How would you descripe the new project',
-        default: 'my awesome project'
+        default: 'my awesome project',
       },
       {
         name: 'username',
         message: 'What is your GitHub username',
         default: this.gitUser.username || this.gitUser.name,
         filter: val => val.toLowerCase(),
-        store: true
+        store: true,
       },
-    ]
+      {
+        name: 'npmClient',
+        message: 'Choose the package manager',
+        type: 'list',
+        choices: ['npm', 'yarn'],
+        default: 'npm',
+      },
+    ];
   },
   actions: [
     {
       type: 'add',
-      files: '**'
+      files: '**',
     },
   ],
   async completed() {
-    this.gitInit()
-    await this.npmInstall()
-    this.showProjectTips()
-  }
-}
+    const { npmClient } = this.answers;
+    this.gitInit();
+    await this.npmInstall({ npmClient });
+    this.showProjectTips();
+  },
+};
