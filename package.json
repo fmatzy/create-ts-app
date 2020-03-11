@@ -9,6 +9,11 @@
   "scripts": {
     "test": "jest"
   },
+  "files": [
+    "bin",
+    "template",
+    "saofile.js"
+  ],
   "dependencies": {
     "cac": "^6.5.7",
     "chalk": "^3.0.0",
