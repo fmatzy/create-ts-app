@@ -218,6 +218,7 @@ exports[`contains all files: package.json 1`] = `
   "author": "mock_username",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
@@ -258,7 +259,7 @@ import { main } from './index';
 
 jest.spyOn(console, 'log');
 
-describe('work fine', () => {
+it('works fine', () => {
   main();
   expect(console.log).toBeCalledWith('Hello, world');
 });
@@ -267,7 +268,7 @@ describe('work fine', () => {
 
 exports[`contains all files: src/index.ts 1`] = `
 export function main() {
-  console.log('hello, world');
+  console.log('Hello, world');
 }
 
 `;

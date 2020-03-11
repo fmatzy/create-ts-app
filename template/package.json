@@ -6,6 +6,7 @@
   "author": "<%= username %>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
