@@ -16,7 +16,7 @@ cli
   .option('--verbose', 'Show debug logs')
   .action((outDir = '.', cliOptions) => {
     console.log();
-    console.log(chalk`{gray @fmatzy/}{cyan create-ts-app} {orange v${version}}`);
+    console.log(chalk`{gray @fmatzy/}{cyan create-ts-app} {yellow v${version}}`);
     console.log(chalk`✨  Generating TypeScript project in {cyan ${outDir}}`);
 
     const { verbose, answers } = cliOptions;
