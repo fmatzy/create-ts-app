@@ -1,6 +1,6 @@
 # @fmatzy/create-ts-app
 
-My personal TypeScript app scafolding tool.
+My personal TypeScript app scaffolding tool.
 
 ## Usage
 
