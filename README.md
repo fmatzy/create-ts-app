@@ -16,4 +16,4 @@ $ npm init @fmatzy/ts-app <my-project>
 
 ## License
 
-MIT (c) [fmatzy](github.com/fmatzy)
+MIT (c) [fmatzy](https://github.com/fmatzy)
