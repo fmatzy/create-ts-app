@@ -1,11 +1,13 @@
 #!/usr/bin/env node
+'use strict';
 
 const sao = require('sao');
 const cac = require('cac');
 const chalk = require('chalk');
+const { resolve } = require('path');
 const { version } = require('../package.json');
 
-const generator = path.resolve(__dirname, '..');
+const generator = resolve(__dirname, '..');
 
 const cli = cac('@fmatzy/create-ts-app');
 
