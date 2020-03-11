@@ -1,6 +1,6 @@
 {
   "name": "@fmatzy/create-ts-app",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "My personal TypeScript app scafolding tool",
   "bin": "./bin/cli.js",
   "repository": "github:fmatzy/create-ts-app",
