@@ -36,6 +36,13 @@ module.exports = {
       type: 'add',
       files: '**',
     },
+    {
+      type: 'move',
+      patterns: {
+        _gitignore: '.gitignore',
+        _npmignore: '.npmignore',
+      },
+    },
   ],
   async completed() {
     const { npmClient } = this.answers;
