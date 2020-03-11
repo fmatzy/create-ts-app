@@ -1,0 +1,35 @@
+{
+  "name": "@fmatzy/create-ts-app",
+  "version": "0.0.0",
+  "description": "My personal TypeScript app scafolding tool",
+  "bin": "./bin/cli.js",
+  "repository": "github:fmatzy/create-ts-app",
+  "author": "fmatzy",
+  "license": "MIT",
+  "files": [
+    "saofile.js",
+    "template"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "cac": "^6.5.7",
+    "chalk": "^3.0.0",
+    "sao": "^1.7.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.1.4",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-snapshot-serializer-raw": "^1.1.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

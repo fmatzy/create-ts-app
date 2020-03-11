@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contains all files: .eslintignore 1`] = `
+node_modules/
+lib/
+
+`;
+
+exports[`contains all files: .eslintrc 1`] = `
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "jest"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "env": {
+    "jest": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}
+
+`;
+
+exports[`contains all files: .github/workflows/nodejs.yml 1`] = `
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js \${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: \${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm test
+      env:
+        CI: true
+
+`;
+
+exports[`contains all files: .github/workflows/npmpublish.yml 1`] = `
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: \${{secrets.npm_token}}
+
+`;
+
+exports[`contains all files: .gitignore 1`] = `
+node_modules/
+lib/
+
+logs
+*.log
+npm-debug.log*
+
+`;
+
+exports[`contains all files: .npmignore 1`] = `
+src
+
+logs
+*.log
+npm-debug.log*
+
+.vscode
+.github
+.eslintrc
+.eslintignore
+jest.config.js
+commitlint.config.js
+.prettierignore
+.prettierrc
+tsconfig.json
+
+`;
+
+exports[`contains all files: .prettierignore 1`] = `
+node_modules/
+lib/
+
+`;
+
+exports[`contains all files: .prettierrc 1`] = `
+{
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "singleQuote": true
+}
+
+`;
+
+exports[`contains all files: LICENSE 1`] = `
+The MIT License (MIT)
+
+Copyright (c) 2020 mock_username
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+`;
+
+exports[`contains all files: README.md 1`] = `
+# output
+
+> my awesome project
+
+## License
+
+MIT &copy; mock_username
+
+`;
+
+exports[`contains all files: commitlint.config.js 1`] = `
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+};
+
+`;
+
+exports[`contains all files: fileList 1`] = `
+Array [
+  ".eslintignore",
+  ".eslintrc",
+  ".github/workflows/nodejs.yml",
+  ".github/workflows/npmpublish.yml",
+  ".gitignore",
+  ".npmignore",
+  ".prettierignore",
+  ".prettierrc",
+  "LICENSE",
+  "README.md",
+  "commitlint.config.js",
+  "jest.config.js",
+  "package.json",
+  "src/index.spec.ts",
+  "src/index.ts",
+  "tsconfig.json",
+]
+`;
+
+exports[`contains all files: jest.config.js 1`] = `
+module.exports = {
+  rootDir: '.',
+  testMatch: ['<rootDir>/src/**/*.spec.ts'],
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+};
+
+`;
+
+exports[`contains all files: package.json 1`] = `
+{
+  "name": "output",
+  "version": "0.0.0",
+  "description": "my awesome project",
+  "repository": "github:mock_username/output",
+  "author": "mock_username",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^24.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "husky": "^4.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint",
+      "prettier --write"
+    ]
+  }
+}
+
+`;
+
+exports[`contains all files: src/index.spec.ts 1`] = `
+import { main } from './index';
+
+jest.spyOn(console, 'log');
+
+describe('work fine', () => {
+  main();
+  expect(console.log).toBeCalledWith('Hello, world');
+});
+
+`;
+
+exports[`contains all files: src/index.ts 1`] = `
+export function main() {
+  console.log('hello, world');
+}
+
+`;
+
+exports[`contains all files: tsconfig.json 1`] = `
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "target": "es2018",
+    "lib": ["dom", "es2018"],
+    "sourceMap": true,
+    "outDir": "lib",
+    "rootDir": "src",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": "./src",
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"]
+}
+
+`;
