@@ -15,16 +15,16 @@
     "saofile.js"
   ],
   "dependencies": {
-    "cac": "^6.5.7",
+    "cac": "^6.5.10",
     "chalk": "^3.0.0",
-    "sao": "^1.7.0"
+    "sao": "^1.7.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@types/jest": "^25.1.4",
-    "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "@types/jest": "^25.2.3",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
     "jest-snapshot-serializer-raw": "^1.1.0",
     "prettier": "^1.19.1"
   },
