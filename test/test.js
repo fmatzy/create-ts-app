@@ -11,7 +11,7 @@ test('contains all files', async () => {
 
   expect(stream.fileList).toMatchSnapshot('fileList');
   await Promise.all(
-    stream.fileList.map(async file => {
+    stream.fileList.map(async (file) => {
       const content = await stream.readFile(file);
       expect(wrap(content)).toMatchSnapshot(file);
     })
