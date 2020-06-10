@@ -24,7 +24,7 @@ cli
     // See https://saojs.org/api.html#standalone-cli
     sao({ generator, outDir, logLevel, cliOptions })
       .run()
-      .catch(err => {
+      .catch((err) => {
         console.trace(err);
         process.exit(1);
       });
